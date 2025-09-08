@@ -15,3 +15,17 @@ def S(st):
   if s in v:continue;v.add(s)
   for ns in N(s):h.heappush(q,(g+1+H(ns),g+1,ns))
 print(S((1,2,3,4,0,6,7,5,8)))
+output
+Solution found in 2 moves:
+
+1 2 3
+4   6
+7 5 8
+------
+1 2 3
+4 5 6
+7   8
+------
+1 2 3
+4 5 6
+7 8 
