@@ -13,3 +13,9 @@ def vacuum_world(state):
 # Example
 vacuum_world(('A','Dirty','Clean'))
 vacuum_world(('B','Clean','Dirty'))
+
+output
+Start: ('A', 'Dirty', 'Clean')
+Clean A
+Start: ('B', 'Clean', 'Dirty')
+Clean B
