@@ -1,0 +1,15 @@
+def vacuum_world(state):
+    # state = (agent_location, roomA, roomB) ; 'Dirty' or 'Clean'
+    loc, A, B = state
+    print("Start:", state)
+
+    if loc == 'A':
+        if A == 'Dirty': print("Clean A")
+        else: print("Move Right to B")
+    else:
+        if B == 'Dirty': print("Clean B")
+        else: print("Move Left to A")
+
+# Example
+vacuum_world(('A','Dirty','Clean'))
+vacuum_world(('B','Clean','Dirty'))
