@@ -9,3 +9,12 @@ def solve(r=0,b=[]):
     for c in range(N):
         if safe(b,r,c): solve(r+1,b+[c])
 solve()
+output
+Q . . . . . . .
+. . . . Q . . .
+. . . . . . . Q
+. . . . . Q . .
+. . Q . . . . .
+. . . . . . Q .
+. Q . . . . . .
+. . . Q . . . .
