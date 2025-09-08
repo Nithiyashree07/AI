@@ -7,3 +7,5 @@ for p in permutations('0123456789', 8):
     if send + more == money:
         print(send, "+", more, "=", money)
         break
+output
+9567 + 1085 = 10652
