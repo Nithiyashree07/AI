@@ -1,0 +1,23 @@
+import heapq
+
+def h(s): return (s[1]=='Dirty')+(s[2]=='Dirty')
+
+def astar(start):
+    pq=[(h(start),0,start,[])]
+    seen={start:0}
+    while pq:
+        f,g,(loc,A,B),path=heapq.heappop(pq)
+        if A==B=='Clean': return path
+        moves=[('Clean',(loc,'Clean',B))] if loc=='A' and A=='Dirty' else []
+        moves+=[('Clean',(loc,A,'Clean'))] if loc=='B' and B=='Dirty' else []
+        moves+=[('Right',('B',A,B))] if loc=='A' else [('Left',('A',A,B))]
+        for act,new in moves:
+            g2=g+1; f2=g2+h(new)
+            if new not in seen or g2<seen[new]:
+                seen[new]=g2; heapq.heappush(pq,(f2,g2,new,path+[act]))
+
+print(astar(('A','Dirty','Dirty')))
+
+ ==========
+['Clean', 'Right', 'Clean']
+
