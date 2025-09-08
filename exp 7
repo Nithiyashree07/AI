@@ -1,0 +1,16 @@
+from collections import deque
+
+def bfs(start):
+    q=deque([(start,[])])
+    seen={start}
+    while q:
+        (loc,A,B),path=q.popleft()
+        if A==B=='Clean': return path
+        acts=[('Clean',(loc,'Clean',B))] if loc=='A' and A=='Dirty' else []
+        acts+=[('Clean',(loc,A,'Clean'))] if loc=='B' and B=='Dirty' else []
+        acts+=[('Right',('B',A,B))] if loc=='A' else [('Left',('A',A,B))]
+        for act,new in acts:
+            if new not in seen:
+                seen.add(new); q.append((new,path+[act]))
+
+print(bfs(('A','Dirty','Dirty')))
