@@ -1,0 +1,15 @@
+from collections import deque
+
+def valid(m,c): return 0<=m<=3 and 0<=c<=3 and (m==0 or m>=c)
+def solve():
+    start,goal=(3,3,1),(0,0,0); moves=[(1,0),(2,0),(0,1),(0,2),(1,1)]
+    q=deque([(start,[start])]); seen={start}
+    while q:
+        (m,c,b),path=q.popleft()
+        if (m,c,b)==goal: return path
+        for dm,dc in moves:
+            new=(m-dm,c-dc,0) if b else (m+dm,c+dc,1)
+            if valid(new[0],new[1]) and valid(3-new[0],3-new[1]) and new not in seen:
+                seen.add(new); q.append((new,path+[new]))
+
+for step in solve(): print(step)
